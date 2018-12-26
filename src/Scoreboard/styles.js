@@ -19,9 +19,15 @@ export const styles = {
         marginLeft: "1em",
         marginRight: "1em"
     },
+    footerContainer: {
+        display: "flex",
+        flexDirection: "column",
+    },
     footer: {
         display: "flex",
         flexDirection: "row",
-        justifyContent: "center"
+        justifyContent: "center",
+        marginBottom: 0,
+        fontSize: "0.75em"
     }
 }

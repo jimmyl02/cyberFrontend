@@ -88,12 +88,12 @@ class unstyledScoreboard extends Component {
       title: "Name",
       dataIndex: "name",
       key: "name",
-      sorter: (a, b) => a.name - b.name
+      sorter: (a, b) => a.name.localeCompare(b.name)
     }, {
       title: "Image Name",
       dataIndex: "imageName",
       key: "imageName",
-      sorter: (a, b) => a.imageName - b.imageName
+      sorter: (a, b) => a.imageName.localeCompare(b.imageName)
     }, {
       title: "Score",
       dataIndex: "score",
@@ -128,7 +128,11 @@ class unstyledScoreboard extends Component {
           <Button type="primary" onClick={this.onSubmit} className={classes.parameterItem}>Submit</Button>
         </div>
         <Table dataSource={this.state.data} columns={columns}/>
-        <p className={classes.footer}>Scorpio By: Clement Chan, Jimmy Li Ubuntu Scoring By: Christo Bakis Scoreboard By: Jimmy Li</p>
+        <div className={classes.footerContainer}>
+          <p className={classes.footer}>Scorpio By: Clement Chan, Jimmy Li</p>
+          <p className={classes.footer}>Ubuntu Scoring By: Christo Bakis</p> 
+          <p className={classes.footer}>Scoreboard By: Jimmy Li</p>
+        </div>
       </div>
     );
   }
