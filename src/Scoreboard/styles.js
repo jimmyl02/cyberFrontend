@@ -18,5 +18,10 @@ export const styles = {
     parameterItem: {
         marginLeft: "1em",
         marginRight: "1em"
+    },
+    footer: {
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "center"
     }
 }

@@ -128,6 +128,7 @@ class unstyledScoreboard extends Component {
           <Button type="primary" onClick={this.onSubmit} className={classes.parameterItem}>Submit</Button>
         </div>
         <Table dataSource={this.state.data} columns={columns}/>
+        <p className={classes.footer}>Scorpio By: Clement Chan, Jimmy Li Ubuntu Scoring By: Christo Bakis Scoreboard By: Jimmy Li</p>
       </div>
     );
   }
