@@ -87,15 +87,18 @@ class unstyledScoreboard extends Component {
     const columns = [{
       title: "Name",
       dataIndex: "name",
-      key: "name"
+      key: "name",
+      sorter: (a, b) => a.name - b.name
     }, {
       title: "Image Name",
       dataIndex: "imageName",
-      key: "imageName"
+      key: "imageName",
+      sorter: (a, b) => a.imageName - b.imageName
     }, {
       title: "Score",
       dataIndex: "score",
-      key: "score"
+      key: "score",
+      sorter: (a, b) => a.score - b.score
     }, {
       title: "Start Time",
       dataIndex: "startTime",
