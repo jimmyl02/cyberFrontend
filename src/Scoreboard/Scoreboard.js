@@ -99,14 +99,15 @@ class unstyledScoreboard extends Component {
       dataIndex: "score",
       key: "score",
       sorter: (a, b) => a.score - b.score
+    },  {
+      title: "Total Time",
+      dataIndex: "totalTime",
+      key: "totalTime",
+      sorter: (a, b) => a.totalTime.localeCompare(b.totalTime)
     }, {
       title: "Start Time",
       dataIndex: "startTime",
       key: "startTime"
-    }, {
-      title: "Total Time",
-      dataIndex: "totalTime",
-      key: "totalTime"
     }];
 
     return (
