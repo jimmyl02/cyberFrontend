@@ -21,7 +21,7 @@ export const styles = {
     },
     footerContainer: {
         display: "flex",
-        flexDirection: "column",
+        flexDirection: "column"
     },
     footer: {
         display: "flex",

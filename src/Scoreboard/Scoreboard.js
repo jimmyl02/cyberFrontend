@@ -103,6 +103,10 @@ class unstyledScoreboard extends Component {
       title: "Start Time",
       dataIndex: "startTime",
       key: "startTime"
+    }, {
+      title: "Total Time",
+      dataIndex: "totalTime",
+      key: "totalTime"
     }];
 
     return (
