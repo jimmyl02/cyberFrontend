@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import 'antd/dist/antd.css'
-import { Scoreboard } from './Scoreboard/Scoreboard';
+import { RootRouter } from './router';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<Scoreboard />, document.getElementById('root'));
+ReactDOM.render(<RootRouter />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
