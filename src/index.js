@@ -2,10 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import 'antd/dist/antd.css'
-import { RootRouter } from './router';
+import { RootRouter } from "./router";
+import { Provider } from "react-redux";
+import { store } from "./store";
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<RootRouter />, document.getElementById('root'));
+ReactDOM.render(
+    <Provider store={ store }>
+        <RootRouter />
+    </Provider>,
+    document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
