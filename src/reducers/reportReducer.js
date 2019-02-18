@@ -19,13 +19,14 @@ export const reportReducer = (state = { report: "", jwt: ""}, action) => {
             ...state,
                 jwt: action.payload
             };
+            Cookies.set("sessionJWT", action.payload);
             break;
         case "LOGOUT":
             state = {
             ...state,
                 jwt: undefined
             };
-            Cookies.set('sessionJWT', undefined);
+            Cookies.set("sessionJWT", undefined);
             break;
       default:
     }

@@ -14,7 +14,7 @@ class unstyledSplash extends Component {
 
             <div className={classes.splitContainer}>
                 <div className={classes.splitHalfLeft}>
-                    <Link to="/scoringEngine">
+                    <Link to="/scoringengine">
                         <h1>Scoring Engine</h1>
                     </Link>
                 </div>
