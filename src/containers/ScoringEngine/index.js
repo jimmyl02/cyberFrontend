@@ -102,10 +102,10 @@ class unstyledScoringEngine extends Component {
                 commandsData: importObj.commands,
                 sharesData: importObj.shares,
                 programsData: importObj.programs,
-                featuresAndServicesData: importObj.featuresAndServicesData,
-                filesData: importObj.filesData,
-                firefoxData: importObj.firefoxData,
-                registryData: importObj.registryData
+                featuresAndServicesData: importObj.featuresAndServices,
+                filesData: importObj.files,
+                firefoxData: importObj.firefox,
+                registryData: importObj.registry
             });
             notification["success"]({
                 message: "Config successfully loaded!",
@@ -251,6 +251,7 @@ class unstyledScoringEngine extends Component {
                     featuresAndServicesData: [...this.state.featuresAndServicesData, {id: this.state.featuresAndServicesData.length + 1, description: values.description, points: values.points, servOrFeat: values.servOrFeat,
                         itemName: values.itemName, expectedEnabled: values.expectedEnabled}]
                 });
+                console.log(this.state.featuresAndServicesData)
                 break;
             case "files":
                 this.setState({
