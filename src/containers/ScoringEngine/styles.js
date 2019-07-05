@@ -13,6 +13,16 @@ export const styles = {
     sectionTitleChild: {
         display: "inline-block",
         marginRight: "0.5em"
+    },
+    footerContainer: {
+        display: "flex",
+        flexDirection: "column"
+    },
+    footer: {
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "center",
+        marginBottom: 0,
+        fontSize: "0.75em"
     }
-
 };

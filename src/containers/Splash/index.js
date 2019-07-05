@@ -1,8 +1,13 @@
 import React, { Component } from "react";
 import injectSheet from "react-jss";
 import { Link } from "react-router-dom";
+import { Layout, Button } from "antd";
 
 import { styles } from "./styles";
+
+import Logo from "../../resources/scorpio.png";
+
+const { Header } = Layout;
 
 class unstyledSplash extends Component {
 
@@ -12,16 +17,35 @@ class unstyledSplash extends Component {
 
         return(
 
-            <div className={classes.splitContainer}>
-                <div className={classes.splitHalfLeft}>
-                    <Link to="/scoringengine">
-                        <h1>Scoring Engine</h1>
-                    </Link>
-                </div>
-                <div className={classes.splitHalfRight}>
-                    <Link to="/scoreboard">
-                        <h1>Scoreboard</h1>
-                    </Link>
+            <div className={classes.body}>
+                <Header className={ classes.headerBar }>
+                    <div
+                        style={{
+                        display: 'flex',
+                        flex: 1,
+                        alignItems: 'center',
+                        justifyContent: 'inline'
+                        }}
+                    >
+                        <img className={ classes.logo } src={ Logo } alt='Logo' />
+                        <span
+                        style={{
+                            paddingLeft: 25,
+                            fontSize: 20,
+                            fontWeight: 'lighter'
+                        }}
+                        >
+                            Scorpio
+                        </span>
+                    </div>
+                </Header>
+                <div className={classes.titleContainer}>
+                    <h1>TOOLS FOR CYBERSECURITY EDUCATION</h1>
+                    <div className={classes.buttonHolder}>
+                        <Button size="large">
+                            <Link to="/scoringengine">Scorpio Scoring Engine</Link>
+                        </Button>
+                    </div>
                 </div>
             </div>
 

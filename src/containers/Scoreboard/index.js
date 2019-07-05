@@ -1,9 +1,18 @@
 import React, { Component } from "react";
 import injectSheet from "react-jss";
 import moment from "moment";
+import { Layout, Menu, Input, Button, Table } from "antd";
+import { Link } from "react-router-dom";
+
 import { styles } from "./styles";
 
-import { Input, Button, Table } from "antd";
+const {
+  Sider, Content
+} = Layout;
+
+const {
+  Item
+} = Menu;
 
 class unstyledScoreboard extends Component {
 
@@ -111,34 +120,53 @@ class unstyledScoreboard extends Component {
     }];
 
     return (
-      <div className={classes.scoreboard}>
-        <header className="scoreboardHeader">
-          <div className={classes.header}>
-            <h1>Troy High School Cyber Scoreboard</h1>
+      <Layout style={{ minHeight: "100vh" }}>
+        <Sider theme="light">
+              <Menu theme="light" mode="inline" defaultSelectedKeys={["scoreboard"]}>
+                  <Item className={classes.logo} disabled>Scorpio Scoring Engine</Item>
+                  <Item key="edit">
+                      <Link to="/scoringengine">
+                          Edit Scoring Report
+                      </Link>
+                  </Item>
+                  <Item key="scoreboard">
+                      <Link to="/scoreboard">
+                          Scoreboard
+                      </Link>
+                  </Item>
+              </Menu>
+          </Sider>
+          <Content className={classes.body}>
+            <div className={classes.scoreboard}>
+            <header className="scoreboardHeader">
+              <div className={classes.header}>
+                <h1>Troy High School Cyber Scoreboard</h1>
+              </div>
+            </header>
+            <div className={classes.parameters}>
+              <Input
+                placeholder="Enter your name"
+                value={this.state.name}
+                onChange={this.onChangeName}
+                className={classes.parameterItem}
+              />
+              <Input
+                placeholder="Enter the image name"
+                value={this.state.imageName}
+                onChange={this.onChangeImageName}
+                className={classes.parameterItem}
+              />
+              <Button type="primary" onClick={this.onSubmit} className={classes.parameterItem}>Submit</Button>
+            </div>
+            <Table dataSource={this.state.data} columns={columns}/>
+            <div className={classes.footerContainer}>
+              <p className={classes.footer}>Scorpio By: Clement Chan, Jimmy Li</p>
+              <p className={classes.footer}>Ubuntu Scoring By: Christo Bakis</p> 
+              <p className={classes.footer}>Web Application By: Jimmy Li</p>
+            </div>
           </div>
-        </header>
-        <div className={classes.parameters}>
-          <Input
-            placeholder="Enter your name"
-            value={this.state.name}
-            onChange={this.onChangeName}
-            className={classes.parameterItem}
-          />
-          <Input
-            placeholder="Enter the image name"
-            value={this.state.imageName}
-            onChange={this.onChangeImageName}
-            className={classes.parameterItem}
-          />
-          <Button type="primary" onClick={this.onSubmit} className={classes.parameterItem}>Submit</Button>
-        </div>
-        <Table dataSource={this.state.data} columns={columns}/>
-        <div className={classes.footerContainer}>
-          <p className={classes.footer}>Scorpio By: Clement Chan, Jimmy Li</p>
-          <p className={classes.footer}>Ubuntu Scoring By: Christo Bakis</p> 
-          <p className={classes.footer}>Scoreboard By: Jimmy Li</p>
-        </div>
-      </div>
+          </Content>
+      </Layout>
     );
   }
 }

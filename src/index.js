@@ -3,14 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import 'antd/dist/antd.css'
 import { RootRouter } from "./router";
-import { Provider } from "react-redux";
-import { store } from "./store";
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-    <Provider store={ store }>
-        <RootRouter />
-    </Provider>,
+    <RootRouter />,
     document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

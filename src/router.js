@@ -5,10 +5,6 @@ import { Splash } from './containers/Splash';
 import { Scoreboard } from './containers/Scoreboard';
 import { ScoringEngine } from './containers/ScoringEngine';
 
-//Tmp import
-import { ScoringEngineAuth } from './containers/ScoringEngineAuth';
-
-
 export class RootRouter extends Component {
 
     render() {
@@ -20,8 +16,6 @@ export class RootRouter extends Component {
                     <Route exact path='/' component={Splash} />
                     <Route path='/scoreboard' component={Scoreboard} />
                     <Route path='/scoringengine' component={ScoringEngine} />
-                    <Route path='/login' component={ScoringEngineAuth}/>
-                    <Route path='/createreport' component={ScoringEngineAuth} />
                 </Switch>
             </BrowserRouter>
 
