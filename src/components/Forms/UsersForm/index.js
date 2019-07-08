@@ -16,8 +16,7 @@ class unstyledUsersForm extends Component {
 
         return (
             <Formik
-                initialValues={{ type: "users", description: "", points: 0, username: "", userPass: "",
-                    shouldExist: "True", shouldChangePw: "False", shouldChangeName: "False", shouldPwExpire: "False" }}
+                initialValues={{ type: "users", description: "", points: 0, username: "", option: "", argument: "" }}
                 onSubmit={onSubmit}
             >
                 {props => (
@@ -52,98 +51,38 @@ class unstyledUsersForm extends Component {
                         </FormItem>
                         <FormItem>
                             <div className={classes.formikField}>
-                                <p className={classes.formikFieldChild}>Current User Password</p>
-                                <FormikField
-                                    name="userPass"
-                                    render={({ field }) => <Input {...field} className={classes.formikFieldChild} placeholder="Current User Password" />}
-                                />
-                            </div>
-                        </FormItem>
-                        <FormItem>
-                            <div className={classes.formikField}>
-                                <p className={classes.formikFieldChild}>Should the user exist</p>
-                                <FormikField
-                                    name="shouldExist"
-                                    render={({ field }) => (
-                                        <Select
-                                          {...field}
-                                          onChange={value => props.setFieldValue("shouldExist", value)}
-                                          value={props.values.shouldExist}
-                                        >
-                                          <Option key={1} value="True">
-                                            True
-                                          </Option>
-                                          <Option key={2} value="False">
-                                            False
-                                          </Option>
-                                        </Select>
-                                      )}
-                                />
-                            </div>
-                        </FormItem>
-                        <FormItem>
-                            <div className={classes.formikField}>
-                                <p className={classes.formikFieldChild}>Should the user change passwords</p>
-                                <FormikField
-                                    name="shouldChangePw"
-                                    render={({ field }) => (
-                                        <Select
-                                          {...field}
-                                          onChange={value => props.setFieldValue("shouldChangePw", value)}
-                                          value={props.values.shouldChangePw}
-                                        >
-                                          <Option key={1} value="True">
-                                            True
-                                          </Option>
-                                          <Option key={2} value="False">
-                                            False
-                                          </Option>
-                                        </Select>
-                                      )}
-                                />
-                            </div>
-                        </FormItem>
-                        <FormItem>
-                            <div className={classes.formikField}>
-                                <p className={classes.formikFieldChild}>Should the user change names</p>
-                                <FormikField
-                                    name="shouldChangeName"
-                                    render={({ field }) => (
-                                        <Select
-                                          {...field}
-                                          onChange={value => props.setFieldValue("shouldChangeName", value)}
-                                          value={props.values.shouldChangeName}
-                                        >
-                                          <Option key={1} value="True">
-                                            True
-                                          </Option>
-                                          <Option key={2} value="False">
-                                            False
-                                          </Option>
-                                        </Select>
-                                      )}
-                                />
-                            </div>
-                        </FormItem>
-                        <FormItem>
-                            <div className={classes.formikField}>
                                 <p className={classes.formikFieldChild}>Should the user's password expire</p>
                                 <FormikField
-                                    name="shouldPwExpire"
+                                    name="option"
                                     render={({ field }) => (
                                         <Select
                                           {...field}
-                                          onChange={value => props.setFieldValue("shouldPwExpire", value)}
-                                          value={props.values.shouldPwExpire}
+                                          onChange={value => props.setFieldValue("option", value)}
+                                          value={props.values.option}
                                         >
-                                          <Option key={1} value="True">
-                                            True
+                                          <Option key={1} value="authorized">
+                                            Authorized (Requires True / False)
                                           </Option>
-                                          <Option key={2} value="False">
-                                            False
+                                          <Option key={2} value="passwd">
+                                            Change Password (Requires old password)
+                                          </Option>
+                                          <Option key={2} value="chname">
+                                            Change Name (Requires old name)
+                                          </Option>
+                                          <Option key={2} value="pwexp">
+                                            Password Expires
                                           </Option>
                                         </Select>
                                       )}
+                                />
+                            </div>
+                        </FormItem>
+                        <FormItem>
+                            <div className={classes.formikField}>
+                                <p className={classes.formikFieldChild}>Argument</p>
+                                <FormikField
+                                    name="argument"
+                                    render={({ field }) => <Input {...field} className={classes.formikFieldChild} placeholder="Argument" />}
                                 />
                             </div>
                         </FormItem>

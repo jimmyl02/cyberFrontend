@@ -213,7 +213,7 @@ class unstyledScoringEngine extends Component {
             case "users":
                 this.setState({
                     usersData: [...this.state.usersData, {id: this.state.usersData.length + 1, description: values.description, points: values.points, username: values.username,
-                        userPass: values.userPass, shouldExist: values.shouldExist, shouldChangePw: values.shouldChangePw, shouldChangeName: values.shouldChangeName, shouldPwExpire: values.shouldPwExpire}]
+                        option: values.option, argument: values.argument}]
                 });
                 break;
             case "groups":
@@ -249,9 +249,8 @@ class unstyledScoringEngine extends Component {
             case "featuresAndServices":
                 this.setState({
                     featuresAndServicesData: [...this.state.featuresAndServicesData, {id: this.state.featuresAndServicesData.length + 1, description: values.description, points: values.points, servOrFeat: values.servOrFeat,
-                        itemName: values.itemName, expectedEnabled: values.expectedEnabled}]
+                        itemName: values.itemName, authorized: values.authorized}]
                 });
-                console.log(this.state.featuresAndServicesData)
                 break;
             case "files":
                 this.setState({

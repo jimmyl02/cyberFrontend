@@ -27,24 +27,12 @@ class unstyledUsersCard extends Component {
                     <p className={classes.informationCardChild}>{item.username}</p>
                 </div>
                 <div className={classes.informationCard}>
-                    <h4 className={classes.informationCardChild}>User password: </h4>
-                    <p className={classes.informationCardChild}>{item.userPass}</p>
+                    <h4 className={classes.informationCardChild}>Option: </h4>
+                    <p className={classes.informationCardChild}>{item.option}</p>
                 </div>
                 <div className={classes.informationCard}>
-                    <h4 className={classes.informationCardChild}>Should they exist: </h4>
-                    <p className={classes.informationCardChild}>{item.shouldExist}</p>
-                </div>
-                <div className={classes.informationCard}>
-                    <h4 className={classes.informationCardChild}>Should they change their password: </h4>
-                    <p className={classes.informationCardChild}>{item.shouldChangePw}</p>
-                </div>
-                <div className={classes.informationCard}>
-                    <h4 className={classes.informationCardChild}>Should they change their name: </h4>
-                    <p className={classes.informationCardChild}>{item.shouldChangeName}</p>
-                </div>
-                <div className={classes.informationCard}>
-                    <h4 className={classes.informationCardChild}>Should their password expire: </h4>
-                    <p className={classes.informationCardChild}>{item.shouldPwExpire}</p>
+                    <h4 className={classes.informationCardChild}>Argument: </h4>
+                    <p className={classes.informationCardChild}>{item.argument}</p>
                 </div>
             </Card>
         );

@@ -31,8 +31,8 @@ class unstyledFeaturesAndServicesCard extends Component {
                     <p className={classes.informationCardChild}>{item.itemName}</p>
                 </div>
                 <div className={classes.informationCard}>
-                    <h4 className={classes.informationCardChild}>Is it expected to be there: </h4>
-                    <p className={classes.informationCardChild}>{item.expectedEnabled}</p>
+                    <h4 className={classes.informationCardChild}>Authorized: </h4>
+                    <p className={classes.informationCardChild}>{item.authorized}</p>
                 </div>
             </Card>
         );
