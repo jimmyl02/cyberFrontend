@@ -49,6 +49,7 @@ class unstyledScoringEngine extends Component {
         // Format for data: description, points, required params maybe use delete so index are not updated [hacky but it works]
         this.state = {
             reportName: "Sample report name",
+            mainUser: "Sample username",
             forensicsData: [],
             usersData: [],
             groupsData: [],
@@ -95,6 +96,7 @@ class unstyledScoringEngine extends Component {
             const importObj = JSON.parse(atob(cleanedInput));
             this.setState({
                 reportName: importObj.name,
+                mainUser: importObj.mainUser,
                 forensicsData: importObj.forensics,
                 usersData: importObj.users,
                 groupsData: importObj.groups,
@@ -124,6 +126,7 @@ class unstyledScoringEngine extends Component {
     exportUnencrypted = () => {
         let exportObj = {
             name: this.state.reportName,
+            mainUser: this.state.mainUser,
             forensics: this.state.forensicsData,
             users: this.state.usersData,
             groups: this.state.groupsData,
@@ -185,6 +188,7 @@ class unstyledScoringEngine extends Component {
     exportEncrypted = () => {
         let exportObj = {
             name: this.state.reportName,
+            mainUser: this.state.mainUser,
             forensics: this.state.forensicsData,
             users: this.state.usersData,
             groups: this.state.groupsData,
@@ -384,6 +388,10 @@ class unstyledScoringEngine extends Component {
                             <h2>Encrypted Configuration</h2>
                             <p>{this.exportEncrypted()}</p>
                         </Modal>
+                    </div>
+                    <div className={classes.sectionTitle}>
+                        <h3 className={classes.sectionTitleChild}>Main logged in user: </h3>
+                        <Input size="large" style={{ width: "15%" }} className={classes.sectionTitleChild} value={this.state.mainUser} onChange={(value) =>  this.setState({reportName: value.target.value})}/>
                     </div>
                     <div className={classes.sectionTitle}>
                         <h3 className={classes.sectionTitleChild}>Forensics</h3>
