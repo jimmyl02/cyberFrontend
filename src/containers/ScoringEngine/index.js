@@ -391,7 +391,7 @@ class unstyledScoringEngine extends Component {
                     </div>
                     <div className={classes.sectionTitle}>
                         <h3 className={classes.sectionTitleChild}>Main logged in user: </h3>
-                        <Input size="large" style={{ width: "15%" }} className={classes.sectionTitleChild} value={this.state.mainUser} onChange={(value) =>  this.setState({reportName: value.target.value})}/>
+                        <Input size="large" style={{ width: "15%" }} className={classes.sectionTitleChild} value={this.state.mainUser} onChange={(value) =>  this.setState({mainUser: value.target.value})}/>
                     </div>
                     <div className={classes.sectionTitle}>
                         <h3 className={classes.sectionTitleChild}>Forensics</h3>
