@@ -51,7 +51,7 @@ class unstyledUsersForm extends Component {
                         </FormItem>
                         <FormItem>
                             <div className={classes.formikField}>
-                                <p className={classes.formikFieldChild}>Should the user's password expire</p>
+                                <p className={classes.formikFieldChild}>Option</p>
                                 <FormikField
                                     name="option"
                                     render={({ field }) => (
