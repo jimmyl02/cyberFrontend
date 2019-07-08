@@ -1,1 +1,1 @@
-export const shift = 0;
+export const secretKey = "secret";

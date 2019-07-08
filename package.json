@@ -14,7 +14,8 @@
     "react-dom": "^16.7.0",
     "react-jss": "^8.6.1",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "2.1.2"
+    "react-scripts": "2.1.2",
+    "vigenere-cipher": "^1.0.0"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -30,7 +30,7 @@ import { FilesCard } from "../../components/InformationCards/FilesCard";
 import { FirefoxCard } from "../../components/InformationCards/FirefoxCard";
 import { RegistryCard } from "../../components/InformationCards/RegistryCard";
 
-import { shift } from "./settings";
+import { secretKey } from "./settings";
 
 const {
     Sider, Content
@@ -142,48 +142,46 @@ class unstyledScoringEngine extends Component {
         return btoa(JSON.stringify(exportObj));
     }
 
-    caesarShift = (str, amount) => {
+    isUppercase = (char) => {
+        return 65 <= char && char <= 90;
+    }
 
-        // Method taken from https://gist.github.com/EvanHahn/2587465
+    isLowercase = (char) => {
+        return 97 <= char && char <= 122;
+    }
 
-        // Wrap the amount
-        if (amount < 0)
-            return this.caesarShift(str, amount + 26);
-    
-        // Make an output variable
-        var output = '';
-    
-        // Go through each character
-        for (var i = 0; i < str.length; i ++) {
-    
-            // Get the character we'll be appending
-            var c = str[i];
-    
-            // If it's a letter...
-            if (c.match(/[a-z]/i)) {
-    
-                // Get its code
-                var code = str.charCodeAt(i);
-    
-                // Uppercase letters
-                if ((code >= 65) && (code <= 90))
-                    c = String.fromCharCode(((code - 65 + amount) % 26) + 65);
-    
-                // Lowercase letters
-                else if ((code >= 97) && (code <= 122))
-                    c = String.fromCharCode(((code - 97 + amount) % 26) + 97);
-    
-            }
-    
-            // Append
-            output += c;
-    
+    isLetter = (char) => {
+        return this.isUppercase(char) || this.isLowercase(char);
+    }
+
+    filterKey = (key) => {
+        let result = [];
+        for (let i = 0; i < key.length; i++){
+            const c = key.charCodeAt(i);
+            if(this.isLetter(c))
+                result.push((c - 65) % 32);
         }
-    
-        // All done!
+        return result;
+    }
+
+    encrypt = (input, key) => {
+        const filteredKey = this.filterKey(key);
+
+        let output = "";
+        for(let i = 0, j = 0; i < input.length; i++){
+            const c = input.charCodeAt(i);
+            if (this.isUppercase(c)) {
+                output += String.fromCharCode((c - 65 + filteredKey[j % filteredKey.length]) % 26 + 65);
+                j++;
+            } else if (this.isLowercase(c)) {
+                output += String.fromCharCode((c - 97 + filteredKey[j % filteredKey.length]) % 26 + 97);
+                j++;
+            } else {
+                output += input.charAt(i);
+            }
+        }
         return output;
-    
-    };
+    }
 
     exportEncrypted = () => {
         let exportObj = {
@@ -202,7 +200,7 @@ class unstyledScoringEngine extends Component {
             registry: this.state.registryData
         };
         let b64str = btoa(JSON.stringify(exportObj));
-        return(this.caesarShift(b64str, shift));
+        return(this.encrypt(b64str, secretKey));
     }
 
     handleSubmit = (values, actions) => {
