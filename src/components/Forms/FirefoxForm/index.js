@@ -66,6 +66,9 @@ class unstyledFirefoxForm extends Component {
                                           <Option key={5} value="tracking">
                                             Tracking protection
                                           </Option>
+                                          <Option key={6} value="version">
+                                            Updated version
+                                          </Option>
                                         </Select>
                                       )}
                                 />

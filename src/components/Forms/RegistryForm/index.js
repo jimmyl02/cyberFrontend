@@ -105,8 +105,17 @@ class unstyledRegistryForm extends Component {
                                           <Option key={7} value=">=">
                                             {">="}
                                           </Option>
-                                          <Option key={8} value="!contain">
-                                            {"!contain"}
+                                          <Option key={8} value="path">
+                                            {"path"}
+                                          </Option>
+                                          <Option key={9} value="!path">
+                                            {"!path"}
+                                          </Option>
+                                          <Option key={10} value="exist">
+                                            {"exist"}
+                                          </Option>
+                                          <Option key={11} value="!exist">
+                                            {"!exist"}
                                           </Option>
                                         </Select>
                                       )}
