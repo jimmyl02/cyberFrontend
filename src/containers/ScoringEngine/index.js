@@ -600,7 +600,10 @@ class unstyledScoringEngine extends Component {
                         footer={null}
                         onCancel={() => this.cancelModal("firefoxModal")}
                     >
-                        <FirefoxForm onSubmit={this.handleSubmit} />
+                        {
+                            //<FirefoxForm onSubmit={this.handleSubmit} />
+                        }
+                        <p>Currently disabled</p>
                     </Modal>
                     <List
                     bordered
