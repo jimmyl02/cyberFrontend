@@ -1,10 +1,13 @@
 {
   "name": "cypatscoreboardfrontend",
-  "version": "0.1.0",
+  "author": "jimmyl02",
+  "version": "0.2.0",
+  "main": "public/start-electron.js",
   "private": true,
   "dependencies": {
     "antd": "^3.13.3",
     "dotenv": "^6.2.0",
+    "electron-is-dev": "^1.2.0",
     "formik": "^1.5.7",
     "handlebars": "^4.1.2",
     "js-cookie": "^2.2.0",
@@ -21,15 +24,47 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "electron-dev": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\"",
+    "preelectron-pack": "yarn build",
+    "electron-pack": "electron-builder -c.extraMetadata.main=build/start-electron.js"
   },
   "eslintConfig": {
     "extends": "react-app"
   },
+  "build": {
+    "productName": "Scorpio Editor",
+    "appId": "com.jimmyl02.scorpioEditor",
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "directories":{
+      "buildResources": "assets"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "build/scorpio.png"
+    },
+    "nsis": {
+      "installerIcon": "build/scorpio.ico",
+      "installerHeaderIcon": "build/scorpio.ico",
+      "deleteAppDataOnUninstall": true
+    }
+  },
+  "homepage": "./",
   "browserslist": [
     ">0.2%",
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "@babel/helper-builder-react-jsx": "^7.10.4",
+    "@babel/helper-regex": "^7.10.5",
+    "concurrently": "^5.3.0",
+    "electron": "^11.1.1",
+    "electron-builder": "^22.9.1",
+    "wait-on": "^5.2.1"
+  }
 }

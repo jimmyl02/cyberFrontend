@@ -25,3 +25,5 @@ yarn-error.log*
 # Custom
 # ignore settings file
 /src/containers/ScoringEngine/settings.js
+/dist/*
+/build
